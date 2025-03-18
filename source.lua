@@ -204,3 +204,22 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
     targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
+
+AutoFarmBanco_tab:AddButton({"Teste", function()
+    local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel
+
+    local function teste()
+        if statusLabel.Text == "ABERTO" then
+            print("true")
+            wait(0.5)
+            print("false")
+        end
+        elseif statusLabel.Text == "FECHADO" then
+            print("false")
+        end
+    end
+
+    statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
+        teste()
+    end)
+end})
