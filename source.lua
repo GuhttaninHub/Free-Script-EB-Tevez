@@ -24,10 +24,15 @@ local player = game.Players.LocalPlayer
 local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
+local RS = game:GetService("RunService")
 
--- Atualiza a variável character sempre que o personagem mudar (após a morte)
-player.CharacterAdded:Connect(function(char)
-    character = char
+task.spawn(function()
+    while true do
+        if player.Character ~= character then
+            character = player.Character
+        end
+        wait(1)
+    end
 end)
 
 -- Funções 
