@@ -104,14 +104,18 @@ end})
 
 local SB_Label = AutoFarmBanco_tab:AddParagraph({"Status: LOADING"})
 
-task.spawn(function()
-    while true do
-        if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
-            SB_Label:SetTitle("Status: ABERTO")
-        end
-        if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "FECHADO" then
-            SB_Label:SetTitle("Status: FECHADO")
-        end
-        wait(0.5)
+local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel
+
+local function atualizarStatus()
+    if statusLabel.Text == "ABERTO" then
+        SB_Label:SetTitle("Status: ABERTO")
+    elseif statusLabel.Text == "FECHADO" then
+        SB_Label:SetTitle("Status: FECHADO")
     end
+end
+
+statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
+    atualizarStatus()
 end)
+
+atualizarStatus()
