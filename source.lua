@@ -25,7 +25,7 @@ local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
-local money_bag = workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money
+local money_bag = workspace:FindFirstChild(player.Name):WaitForChild("Money Bag").Handle.DataAttachment.BillboardGui.Frame.Money
 
 task.spawn(function()
     while true do
