@@ -41,7 +41,7 @@ end)
 -- Nenhuma
 
 -- Construindo a TAB de Auto Farm Banco
-local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
+local AutoFarmBanco_tab = Window:MakeTab({"Farm Banco", "sla"})
 
 -- Botão para iniciar roubo
 AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
