@@ -157,40 +157,40 @@ local TP_Tab = Window:MakeTab({"Teleport", "Portal"})
 TP_Tab:AddSection("Cidade")
 
 TP_Tab:AddButton({"Teletransportar para a Loja de Armas", function()
-    targetCFrame = CFrame.new(-124.854996, 32.0230446, 499.881866, 0, 0, 0)
+    targetCFrame = CFrame.new(-124.854996, 32.0230446, 499.881866)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Posto de Gasolina", function()
-    targetCFrame = CFrame.new(146.707809, 31.7656364, 439.716553, 0, 0, 0)
+    targetCFrame = CFrame.new(146.707809, 31.7656364, 439.716553)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Garagem", function()
-    targetCFrame = CFrame.new(-256.281769, 31.6875458, 98.6261063, 0, 0, 0)
+    targetCFrame = CFrame.new(-256.281769, 31.6875458, 98.6261063)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Banco", function()
-    targetCFrame = CFrame.new(108.752861, 36.4875107, 15.5737019, 0, 0, 0)
+    targetCFrame = CFrame.new(108.752861, 36.4875107, 15.5737019)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Joalheria", function()
-    targetCFrame = CFrame.new(-96.6770248, 31.6303158, 250.667328, 0, 0, 0)
+    targetCFrame = CFrame.new(-96.6770248, 31.6303158, 250.667328)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddSection("Exército Brasileiro")
 
 TP_Tab:AddButton({"Teletransportar para o Exército Brasileiro (fora)", function()
-    targetCFrame = CFrame.new(-58.8901863, 31.6249809, 664.38031, 0, 0, 0)
+    targetCFrame = CFrame.new(-58.8901863, 31.6249809, 664.38031)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddSection("Aliança")
 
 TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
-    targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117, 0, 0, 0)
+    targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
