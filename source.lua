@@ -43,7 +43,7 @@ local function FARM_DINHEIRO()
     farm_run = true
     task.spawn(function()
             while estado_banco do
-                if workspace.FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money == "R$4000" then
+                if workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money == "R$4000" then
                     targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                     character:SetPrimaryPartCFrame(targetCFrame)
     
@@ -67,9 +67,9 @@ local function FARM_DINHEIRO()
                     character:SetPrimaryPartCFrame(targetCFrame)
                     wait(0.2)
                 end
+                farm_run = false
             end
     end)
-    farm_run = false
 end
 
 local function C4()
@@ -292,10 +292,7 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    RS:RenderStepped(function()
-        statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
-            AutoFarmBanco_Auto()
-        end)
+    RS:RenderStepped:Connect(function()
         local function AutoFarmBanco_Auto()
             if statusLabel.Text == "ABERTO" then
                 if not estado_banco then
@@ -313,5 +310,8 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                 wait(5)
             end
         end
+        statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
+            AutoFarmBanco_Auto()
+        end)
     end)
 end})
