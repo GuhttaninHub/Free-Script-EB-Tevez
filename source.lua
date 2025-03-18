@@ -101,3 +101,5 @@ AutoFarmBanco_tab:AddButton({"Entregar Dinheiro", function()
 
     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
 end})
+
+local SB_Label = AutoFarmBanco_tab:AddParagraph({"Status: LOADING"})
