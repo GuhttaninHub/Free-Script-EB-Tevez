@@ -33,7 +33,6 @@ end)
 -- Funções 
 -- nenhuma
 
-TP(-124.854996, 32.0230446, 499.881866, 1, 0, 0) -- Exemplo de chamada
 -- Construindo a TAB de Auto Farm Banco
 local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
 
