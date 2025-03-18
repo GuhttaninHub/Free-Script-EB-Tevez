@@ -292,7 +292,7 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    RS:RenderStepped:Connect(function()
+    task.spawn(function()
         local function AutoFarmBanco_Auto()
             if statusLabel.Text == "ABERTO" then
                 if not estado_banco then
