@@ -21,7 +21,7 @@ Window:AddMinimizeButton({
 
 -- Variáveis para o resto do código 
 local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
+local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
