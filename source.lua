@@ -1,11 +1,14 @@
+-- Pegando a lib RedzLibV5 
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/RedzLibV5/main/Source.lua"))()
 
+-- Construindo a janela
 local Window = redzlib:MakeWindow({
     Title = "SD-Goal Hub",
     SubTitle = "Made by Guhttanin",
     SaveFolder = "Redz Config"
 })
 
+-- Construindo o botão de minimizar a janela
 Window:AddMinimizeButton({
     Button = {
         Image = "rbxassetid://115626219720163",
@@ -16,11 +19,19 @@ Window:AddMinimizeButton({
     }
 })
 
+-- Variáveis para o resto do código 
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
+-- Funções 
+local function TP(CFrame)
+    cframe = CFrame.new(CFrame)
+    character:SetPrimaryPartCFrame(cframe)
+end
+
+-- Construindo a TAB de Auto Farm Banco
 local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
 
 AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
