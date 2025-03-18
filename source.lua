@@ -214,7 +214,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
             wait(0.5)
             print("false")
         end
-        elseif statusLabel.Text == "FECHADO" then
+        if statusLabel.Text == "FECHADO" then
             print("false")
         end
     end
