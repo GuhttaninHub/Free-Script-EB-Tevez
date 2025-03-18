@@ -155,33 +155,33 @@ local TP_Tab = Window:MakeTab({"Teleport", "Portal"})
 TP_Tab:AddSection("Cidade")
 
 TP_Tab:AddButton({"Teletransportar para a Loja de Armas", function()
-    TP(-124.854996, 32.0230446, 499.881866, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(-124.854996, 32.0230446, 499.881866)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Posto de Gasolina", function()
-    TP(146.707809, 31.7656364, 439.716553, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(146.707809, 31.7656364, 439.716553)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Garagem", function()
-    TP(-256.281769, 31.6875458, 98.6261063, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(-256.281769, 31.6875458, 98.6261063)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Banco", function()
-    TP(108.752861, 36.4875107, 15.5737019, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(108.752861, 36.4875107, 15.5737019)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Joalheria", function()
-    TP(-96.6770248, 31.6303158, 250.667328, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(-96.6770248, 31.6303158, 250.667328)
 end})
 
 TP_Tab:AddSection("Exército Brasileiro")
 
 TP_Tab:AddButton({"Teletransportar para o Exército Brasileiro (fora)", function()
-    TP(-58.8901863, 31.6249809, 664.38031, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(-58.8901863, 31.6249809, 664.38031)
 end})
 
 TP_Tab:AddSection("Aliança")
 
 TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
-    TP(-890.466431, 50.9588318, 711.995117, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    TP(-890.466431, 50.9588318, 711.995117)
 end})
