@@ -106,5 +106,7 @@ local SB_Label = AutoFarmBanco_tab:AddParagraph({"Status: LOADING"})
 
 if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
     SB_Label:SetTitle("Status: ABERTO")
+end
 if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "FECHADO" then
     SB_Label:SetTitle("Status: FECHADO")
+end
