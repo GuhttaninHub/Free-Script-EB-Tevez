@@ -208,5 +208,6 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    if local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" and 
+    if local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" and workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
+        print("pera")
 end})
