@@ -112,6 +112,6 @@ task.spawn(function()
         if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "FECHADO" then
             SB_Label:SetTitle("Status: FECHADO")
         end
-        task.wait(0.5)
+        wait(0.5)
     end
 end)
