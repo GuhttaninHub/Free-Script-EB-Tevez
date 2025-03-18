@@ -39,7 +39,6 @@ end)
 
 -- Funções 
 local function FARM_DINHEIRO()
-    if farm_run then return end
     farm_run = true
     task.spawn(function()
             while estado_banco do
@@ -59,7 +58,7 @@ local function FARM_DINHEIRO()
 
                     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
                 end
-                else
+                if workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money.Text ~= "R$4000" then
                     targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                     character:SetPrimaryPartCFrame(targetCFrame)
                     wait(0.2)
