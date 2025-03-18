@@ -26,10 +26,7 @@ local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
 -- Funções 
-local function TP(x, y, z, rx, ry, rz)
-    local targetCFrame = CFrame.new(x, y, z) * CFrame.Angles(rx, ry, rz)
-    character:SetPrimaryPartCFrame(targetCFrame)
-end
+-- nenhuma
 
 TP(-124.854996, 32.0230446, 499.881866, 1, 0, 0) -- Exemplo de chamada
 -- Construindo a TAB de Auto Farm Banco
@@ -151,33 +148,40 @@ local TP_Tab = Window:MakeTab({"Teleport", "Portal"})
 TP_Tab:AddSection("Cidade")
 
 TP_Tab:AddButton({"Teletransportar para a Loja de Armas", function()
-    TP(-124.854996, 32.0230446, 499.881866, 0, 0, 0)
+    targetCFrame = CFrame.new(-124.854996, 32.0230446, 499.881866, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Posto de Gasolina", function()
-    TP(146.707809, 31.7656364, 439.716553, 0, 0, 0)
+    targetCFrame = CFrame.new(146.707809, 31.7656364, 439.716553, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Garagem", function()
-    TP(-256.281769, 31.6875458, 98.6261063, 0, 0, 0)
+    targetCFrame = CFrame.new(-256.281769, 31.6875458, 98.6261063, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para o Banco", function()
-    TP(108.752861, 36.4875107, 15.5737019, 0, 0, 0)
+    targetCFrame = CFrame.new(108.752861, 36.4875107, 15.5737019, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddButton({"Teletransportar para a Joalheria", function()
-    TP(-96.6770248, 31.6303158, 250.667328, 0, 0, 0)
+    targetCFrame = CFrame.new(-96.6770248, 31.6303158, 250.667328, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddSection("Exército Brasileiro")
 
 TP_Tab:AddButton({"Teletransportar para o Exército Brasileiro (fora)", function()
-    TP(-58.8901863, 31.6249809, 664.38031, 0, 0, 0)
+    targetCFrame = CFrame.new(-58.8901863, 31.6249809, 664.38031, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddSection("Aliança")
 
 TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
-    TP(-890.466431, 50.9588318, 711.995117, 0, 0, 0)
+    targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117, 0, 0, 0)
+    character:SetPrimaryPartCFrame(targetCFrame)
 end})
