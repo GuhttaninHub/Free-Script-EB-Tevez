@@ -25,6 +25,11 @@ local character = player.Character or player.CharacterAdded:Wait()
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
+-- Atualiza a variável character sempre que o personagem mudar (após a morte)
+player.CharacterAdded:Connect(function(char)
+    character = char
+end)
+
 -- Funções 
 -- nenhuma
 
