@@ -25,6 +25,7 @@ local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
+local estado_banco = false
 
 task.spawn(function()
     while true do
@@ -36,7 +37,88 @@ task.spawn(function()
 end)
 
 -- Funções 
--- nenhuma
+local function FARM_DINHEIRO()
+    task.spawn(function()
+            while estado_banco do
+                if workspace...player..["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money == "R$4000" then
+                    targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                    character:SetPrimaryPartCFrame(targetCFrame)
+    
+                    wait(0.2)
+    
+                    VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+    
+                    wait(0.2)
+    
+                    local args = {
+                        [1] = "CollectCash"
+                    }
+
+                    game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
+                end
+                else
+                    targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                    character:SetPrimaryPartCFrame(targetCFrame)
+                    wait(0.2)
+                    targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                    character:SetPrimaryPartCFrame(targetCFrame)
+                    wait(0.2)
+                end
+            end
+    end)
+end
+
+local function C4()
+    -- Colocando um CFrame na variável targetCFrame
+    targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    -- Teletransportando o jogador até o CFrame definido na variável targetCFrame, que no caso é o CFrame da loja ilegal la da Aliança 
+    character:SetPrimaryPartCFrame(targetCFrame)
+
+    -- Espera 0.2 segundos
+    wait(0.2)
+
+    -- Argumentos para o Remote Event de Comprar C4
+    local args = {
+        [1] = "IlegalShop",
+        [2] = "Buy",
+        [3] = "C4"
+    }
+
+    -- Remote Event de comprar a C4
+    game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("ClientPurchases"):FireServer(unpack(args))
+
+    -- espera 0.2 segundos 
+    wait(0.2)
+
+    -- Variável que contém o inventário do jogador
+    local backpack = player:WaitForChild("Backpack")
+    -- A C4
+    local tool = backpack:WaitForChild("C4")
+
+    -- Coloca a C4 na mão do jogador para deixar pronto
+    tool.Parent = character
+
+    -- espera 0.2 segundos
+    wait(0.2)
+
+    -- mesmo esquema dos CFrames acima, só que aqui é a porta da C4 do banco
+    targetCFrame = CFrame.new(60.9868698, 16.2101593, 41.6791344, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    character:SetPrimaryPartCFrame(targetCFrame)
+
+    -- espera 0.2 segundos
+    wait(0.2)
+
+    -- parte importante, deixa o ProximtyPrompt com o HoldDuration com valor 0 para retirar o tempo de espera para colocar a C4
+    workspace.Map.Robberies.Bank.VaultDoor.C4.Handle.ProximityPrompt.HoldDuration = 0
+
+    -- espera 0.2 segundos
+    wait(0.2)
+
+    -- simula que apertou a tecla E para colocar a bomba 
+    VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+
+    -- fim, que trabalho para fazer esses comentários
+end
 
 -- Construindo a TAB de Auto Farm Banco
 local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
@@ -206,21 +288,26 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    local function teste()
-        if statusLabel.Text == "ABERTO" then
-            print("true")
-            task.wait(0.5)
-            print("false")
-        elseif statusLabel.Text == "FECHADO" then
-            print("false")
+    RS:RenderStepped(function()
+        statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
+            AutoFarmBanco_Auto()
+        end)
+        local function AutoFarmBanco_Auto()
+            if statusLabel.Text == "ABERTO" then
+                if not estado_banco then
+                    C4()
+                end
+                estado_banco = true
+                wait(0.2)
+                if estado_banco then
+                    FARM_DINHEIRO()
+                end
+            end
+            elseif statusLabel.Text == "FECHADO" then
+                estado_banco = false
+                print("esperando abrir...")
+                wait(5)
+            end
         end
-    end
-
-    -- Chama o teste imediatamente quando clicar no botão
-    teste()
-
-    -- Depois, conecta para futuras mudanças
-    statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
-        teste()
     end)
 end})
