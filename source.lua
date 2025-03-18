@@ -209,10 +209,9 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
     local function teste()
         if statusLabel.Text == "ABERTO" then
             print("true")
-            wait(0.5)
+            task.wait(0.5)
             print("false")
-        end
-        if statusLabel.Text == "FECHADO" then
+        elseif statusLabel.Text == "FECHADO" then
             print("false")
         end
     end
