@@ -208,6 +208,30 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    if local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" and workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
-        print("pera")
+    task.spawn(function()
+        if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
+            if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
+                while true do
+                    if workspace.FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money.Text >= "R$4000" then
+                        targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                        character:SetPrimaryPartCFrame(targetCFrame)
+                        wait(0.2)
+                        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                        wait(0.2)
+                        local args = {
+                            [1] = "CollectCash"
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
+                    else
+                        targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                        character:SetPrimaryPartCFrame(targetCFrame)
+                        wait(0.2)
+                        targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                        character:SetPrimaryPartCFrame(targetCFrame)
+                        wait(0.2)
+                    end
+                end
+            end
+        end
+    end)
 end})
