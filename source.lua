@@ -302,7 +302,6 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                 if estado_banco then
                     FARM_DINHEIRO()
                 end
-            end
             elseif statusLabel.Text == "FECHADO" then
                 estado_banco = false
                 print("esperando abrir...")
