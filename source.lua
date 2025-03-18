@@ -216,6 +216,10 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
         end
     end
 
+    -- Chama o teste imediatamente quando clicar no botão
+    teste()
+
+    -- Depois, conecta para futuras mudanças
     statusLabel:GetPropertyChangedSignal("Text"):Connect(function()
         teste()
     end)
