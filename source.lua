@@ -26,6 +26,7 @@ local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
 local estado_banco = false
+local farm_run
 
 task.spawn(function()
     while true do
@@ -38,9 +39,11 @@ end)
 
 -- Funções 
 local function FARM_DINHEIRO()
+    if farm_run then return end
+    farm_run = true
     task.spawn(function()
             while estado_banco do
-                if workspace...player..["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money == "R$4000" then
+                if workspace.FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money == "R$4000" then
                     targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                     character:SetPrimaryPartCFrame(targetCFrame)
     
@@ -66,6 +69,7 @@ local function FARM_DINHEIRO()
                 end
             end
     end)
+    farm_run = false
 end
 
 local function C4()
