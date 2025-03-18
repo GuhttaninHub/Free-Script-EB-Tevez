@@ -26,51 +26,70 @@ local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 
 -- Funções 
-local function TP(CFrame)
-    cframe = CFrame.new(CFrame)
-    character:SetPrimaryPartCFrame(cframe)
+local function TP(pos)
+    if typeof(pos) == "CFrame" then
+        character:SetPrimaryPartCFrame(pos)
+    elseif typeof(pos) == "Vector3" then
+        character:SetPrimaryPartCFrame(CFrame.new(pos))
+    else
+        warn("Posição inválida fornecida para TP")
+    end
 end
 
 -- Construindo a TAB de Auto Farm Banco
 local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
 
+-- Botão para iniciar roubo
 AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    -- Colocando um CFrame na variável targetCFrame
+    targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    -- Teletransportando o jogador até o CFrame definido na variável targetCFrame, que no caso é o CFrame da loja ilegal la da Aliança 
     character:SetPrimaryPartCFrame(targetCFrame)
 
+    -- Espera 0.2 segundos
     wait(0.2)
 
+    -- Argumentos para o Remote Event de Comprar C4
     local args = {
         [1] = "IlegalShop",
         [2] = "Buy",
         [3] = "C4"
     }
 
+    -- Remote Event de comprar a C4
     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("ClientPurchases"):FireServer(unpack(args))
 
+    -- espera 0.2 segundos 
     wait(0.2)
 
-    local player = game.Players.LocalPlayer
-    local character = player.Character
+    -- Variável que contém o inventário do jogador
     local backpack = player:WaitForChild("Backpack")
+    -- A C4
     local tool = backpack:WaitForChild("C4")
 
+    -- Coloca a C4 na mão do jogador para deixar pronto
     tool.Parent = character
 
+    -- espera 0.2 segundos
     wait(0.2)
 
+    -- mesmo esquema dos CFrames acima, só que aqui é a porta da C4 do banco
     targetCFrame = CFrame.new(60.9868698, 16.2101593, 41.6791344, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     character:SetPrimaryPartCFrame(targetCFrame)
 
+    -- espera 0.2 segundos
     wait(0.2)
 
+    -- parte importante, deixa o ProximtyPrompt com o HoldDuration com valor 0 para retirar o tempo de espera para colocar a C4
     workspace.Map.Robberies.Bank.VaultDoor.C4.Handle.ProximityPrompt.HoldDuration = 0
 
+    -- espera 0.2 segundos
     wait(0.2)
 
+    -- simula que apertou a tecla E para colocar a bomba 
     VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+
+    -- fim, que trabalho para fazer esses comentários
 end})
 
 local Toggle_PegarDinheiro_Banco = AutoFarmBanco_tab:AddToggle({
