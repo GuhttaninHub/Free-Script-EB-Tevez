@@ -206,8 +206,6 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
 end})
 
 AutoFarmBanco_tab:AddButton({"Teste", function()
-    local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel
-
     local function teste()
         if statusLabel.Text == "ABERTO" then
             print("true")
