@@ -25,8 +25,7 @@ local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
-local estado_banco = false
-local farm_run
+local money_bag = workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money
 
 task.spawn(function()
     while true do
@@ -212,7 +211,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
         if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
             if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
                 while true do
-                    if workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money.Text >= "R$4000" then
+                    if money_bag and money_bag.Text >= "R$4000" then
                         targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         character:SetPrimaryPartCFrame(targetCFrame)
                         wait(0.2)
