@@ -183,12 +183,22 @@ end})
 
 TP_Tab:AddSection("Exército Brasileiro")
 
+TP_Tab:AddButton({"Teletransportar para o Exército Brasileiro (dentro)", function()
+    targetCFrame = CFrame.new(-260.564667, 31.3155518, 1797.7998, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    character:SetPrimaryPartCFrame(targetCFrame)
+end})
+
 TP_Tab:AddButton({"Teletransportar para o Exército Brasileiro (fora)", function()
     targetCFrame = CFrame.new(-58.8901863, 31.6249809, 664.38031)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
 TP_Tab:AddSection("Aliança")
+
+TP_Tab:AddButton({"Teletransportar para a Aliança (dentro)", function()
+    targetCFrame = CFrame.new(-1169.37061, 101.298706, 373.718201, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    character:SetPrimaryPartCFrame(targetCFrame)
+end})
 
 TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
     targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117)
