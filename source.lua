@@ -212,7 +212,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
         if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
             if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
                 while true do
-                    if workspace.FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money.Text >= "R$4000" then
+                    if workspace:FindFirstChild(player.Name)["Money Bag"].Handle.DataAttachment.BillboardGui.Frame.Money.Text >= "R$4000" then
                         targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         character:SetPrimaryPartCFrame(targetCFrame)
                         wait(0.2)
