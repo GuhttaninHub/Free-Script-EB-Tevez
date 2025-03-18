@@ -108,9 +108,9 @@ local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLa
 
 local function atualizarStatus()
     if statusLabel.Text == "ABERTO" then
-        SB_Label:SetTitle("Status: ABERTO")
+        SB_Label:SetTitle("Status: <font color='rgb(0, 255, 0)'>ABERTO</font>")
     elseif statusLabel.Text == "FECHADO" then
-        SB_Label:SetTitle("Status: FECHADO")
+        SB_Label:SetTitle("Status: <font color='rgb(255, 0, 0)'>FECHADO</font>")
     end
 end
 
