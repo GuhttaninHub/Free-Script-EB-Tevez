@@ -211,9 +211,15 @@ end})
 
 AutoFarmBanco_tab:AddSection({"Auto Farm Automatico"})
 
-AutoFarmBanco_tab:AddButton({"Auto Farm Banco (AFK ✅)", function()
+local Toggle_AutoFarmBanco_Auto = AutoFarmBanco_tab:AddToggle({
+    Title = "Auto Farm Banco (AFK ✅)",
+    Default = false
+})
+
+Toggle_AutoFarmBanco_Auto:Callback(function(Value)
+    Run_AFBA = Value
     task.spawn(function()
-        while true do 
+        while Run_AFBA do 
             wait(0.2)
             if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
                 if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
@@ -275,5 +281,5 @@ AutoFarmBanco_tab:AddButton({"Auto Farm Banco (AFK ✅)", function()
             end
         end
     end)
-end})
+end)
     
