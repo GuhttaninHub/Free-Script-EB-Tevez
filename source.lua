@@ -256,6 +256,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                         VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
                     end
                 end
+            wait(0.5)
             end
         end
     end)
