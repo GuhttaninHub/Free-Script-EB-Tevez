@@ -264,6 +264,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                     workspace.Map.Robberies.Bank.VaultDoor.C4.Handle.ProximityPrompt.HoldDuration = 0
                     wait(0.2)
                     VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                    wait(0.5)
                     wait_ = true
                 end
             end
