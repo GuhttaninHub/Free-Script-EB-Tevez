@@ -25,6 +25,7 @@ local character = player.Character
 local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
+local wait_
 
 task.spawn(function()
     while true do
@@ -212,28 +213,35 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
             if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
                 if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
                     while workspace.Map.Robberies.Bank.BankArea.Alarm.Playing do
-                        targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                        character:SetPrimaryPartCFrame(targetCFrame)
-                        wait(0.2)
-                        targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                        character:SetPrimaryPartCFrame(targetCFrame)
-                        wait(0.2)
-                        local money_bag = workspace:FindFirstChild(player.Name):WaitForChild("Money Bag").Handle.DataAttachment.BillboardGui.Frame.Money
-                        local money_bag_value = tonumber(money_bag.Text:match("R%$(%d+)"))
-                        if money_bag_value >= 4000 then
-                            targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                        if not wait_ then
+                            targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                             character:SetPrimaryPartCFrame(targetCFrame)
                             wait(0.2)
-                            VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                            targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            character:SetPrimaryPartCFrame(targetCFrame)
                             wait(0.2)
-                            local args = {
-                                [1] = "CollectCash"
-                             }
-                             game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
-                             wait(0.2)
-                          end
-                       end
-                elseif workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false then
+                            local money_bag = workspace:FindFirstChild(player.Name):WaitForChild("Money Bag").Handle.DataAttachment.BillboardGui.Frame.Money
+                            local money_bag_value = tonumber(money_bag.Text:match("R%$(%d+)"))
+                            if money_bag_value >= 4000 then
+                                targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                                character:SetPrimaryPartCFrame(targetCFrame)
+                                wait(0.2)
+                                VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+                                wait(0.2)
+                                local args = {
+                                    [1] = "CollectCash"
+                                }
+                                game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
+                                wait(0.2)
+                             end
+                        else
+                            targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            character:SetPrimaryPartCFrame(targetCFrame)
+                            wait(5)
+                            wait_ = false
+                        end
+                    end
+                elseif workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false
                     while not workspace.Map.Robberies.Bank.BankArea.Alarm.Playing do
                         targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         character:SetPrimaryPartCFrame(targetCFrame)
@@ -255,10 +263,11 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                         workspace.Map.Robberies.Bank.VaultDoor.C4.Handle.ProximityPrompt.HoldDuration = 0
                         wait(0.2)
                         VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
-                        wait(5)
+                        wait_ = true
                     end
                 end
             end
         end
     end)
 end})
+    
