@@ -231,7 +231,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                         wait(0.2)
                     end
                 end
-            elseif workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" and workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false then
+            elseif workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false then
                 targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                 character:SetPrimaryPartCFrame(targetCFrame)
                 wait(0.2)
