@@ -235,9 +235,11 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                                 wait(0.2)
                              end
                         else
-                            targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                             character:SetPrimaryPartCFrame(targetCFrame)
                             wait(12)
+                            targetCFrame = CFrame.new(43.2352448, 16.2101593, 28.3578701, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                            character:SetPrimaryPartCFrame(targetCFrame)
                             wait_ = false
                         end
                     end
