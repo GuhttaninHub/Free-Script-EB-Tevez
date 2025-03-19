@@ -216,7 +216,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                     targetCFrame = CFrame.new(56.1759377, 16.3620834, 27.7989845, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                     character:SetPrimaryPartCFrame(targetCFrame)
                     wait(0.2)
-                    local money_bag = workspace.FindFirstChild(player.Name):WaitForChild("Money Bag").Handle.DataAttachment.BillboardGui.Frame.Money
+                    local money_bag = workspace:FindFirstChild(player.Name):WaitForChild("Money Bag").Handle.DataAttachment.BillboardGui.Frame.Money
                     local money_bag_value = tonumber(money_bag.Text:match("R%$(%d+)"))
                     if money_bag_value >= 4000 then
                         targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
