@@ -231,7 +231,28 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                         wait(0.2)
                     end
                 end
-            end
+            elseif workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" and workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false then
+                targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                character:SetPrimaryPartCFrame(targetCFrame)
+                wait(0.2)
+                local args = {
+                    [1] = "IlegalShop",
+                    [2] = "Buy",
+                    [3] = "C4"
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("ClientPurchases"):FireServer(unpack(args))
+                wait(0.2)
+                local backpack = player:WaitForChild("Backpack")
+                local tool = backpack:WaitForChild("C4")
+                tool.Parent = character
+                wait(0.2)
+                targetCFrame = CFrame.new(60.9868698, 16.2101593, 41.6791344, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                character:SetPrimaryPartCFrame(targetCFrame)
+                wait(0.2)
+                workspace.Map.Robberies.Bank.VaultDoor.C4.Handle.ProximityPrompt.HoldDuration = 0
+                wait(0.2)
+                VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+           end
         end
     end)
 end})
