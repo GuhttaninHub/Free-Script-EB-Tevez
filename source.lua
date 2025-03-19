@@ -40,8 +40,9 @@ end)
 -- Nenhuma
 
 -- Construindo a TAB de Auto Farm Banco
-local AutoFarmBanco_tab = Window:MakeTab({"Farm Banco", "sla"})
+local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
 
+AutoFarmBanco_tab:AddSection({"Farm Manual"})
 -- Botão para iniciar roubo
 AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
     -- Colocando um CFrame na variável targetCFrame
@@ -135,6 +136,8 @@ AutoFarmBanco_tab:AddButton({"Entregar Dinheiro", function()
     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
 end})
 
+AutoFarmBanco_tab:AddSection({"Status"})
+
 local SB_Label = AutoFarmBanco_tab:AddParagraph({"Status: LOADING"})
 
 local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel
@@ -205,6 +208,8 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
     targetCFrame = CFrame.new(-890.466431, 50.9588318, 711.995117)
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
+
+AutoFarmBanco_tab:AddSection({"Auto Farm Automatico"})
 
 AutoFarmBanco_tab:AddButton({"Auto Farm Banco (AFK ✅)", function()
     task.spawn(function()
