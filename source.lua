@@ -206,7 +206,7 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
-AutoFarmBanco_tab:AddButton({"Teste", function()
+AutoFarmBanco_tab:AddButton({"Auto Farm Banco (AFK ✅)", function()
     task.spawn(function()
         while true do 
             wait(0.2)
