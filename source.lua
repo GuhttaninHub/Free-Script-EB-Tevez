@@ -208,6 +208,7 @@ end})
 AutoFarmBanco_tab:AddButton({"Teste", function()
     task.spawn(function()
         while true do 
+            wait(0.2)
             if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
                 if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
                     while workspace.Map.Robberies.Bank.BankArea.Alarm.Playing then
