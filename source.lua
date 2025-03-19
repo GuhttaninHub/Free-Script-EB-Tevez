@@ -234,7 +234,7 @@ AutoFarmBanco_tab:AddButton({"Teste", function()
                           end
                        end
                 elseif workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == false then
-                    while not workspace.Map.Robberies.Bank.BankArea.Alarm.Playing then
+                    while not workspace.Map.Robberies.Bank.BankArea.Alarm.Playing do
                         targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                         character:SetPrimaryPartCFrame(targetCFrame)
                         wait(0.2)
