@@ -221,12 +221,6 @@ Toggle_AutoFarmBanco_Auto:Callback(function(Value)
     task.spawn(function()
         while Run_AFBA do 
             wait(0.2)
-            while Run_AFBA do
-                if player.Character ~= character then
-                    character = player.Character
-                end
-                wait(0.5)
-            end
             if workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel.Text == "ABERTO" then
                 if workspace.Map.Robberies.Bank.BankArea.Alarm.Playing == true then
                     while workspace.Map.Robberies.Bank.BankArea.Alarm.Playing do
