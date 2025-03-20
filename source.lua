@@ -209,6 +209,18 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (fora)", function()
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
+TP_Tab:AddSection("Revolução Trabalhista")
+
+TP_Tab:AddButton({"Teletransportar para a Revolução Trabalhista (fora)", function()
+    targetCFrame = CFrame.new(357.093536, 31.0223541, 283.420471, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    character:SetPrimaryPartCFrame(targetCFrame)
+end})
+
+TP_Tab:AddButton({"Teletransportar para a Aliança (dentro)", function()
+    targetCFrame = CFrame.new(687.061646, 31.4687767, 163.411301, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    character:SetPrimaryPartCFrame(targetCFrame)
+end})
+
 AutoFarmBanco_tab:AddSection({"Auto Farm Automatico"})
 
 local Toggle_AutoFarmBanco_Auto = AutoFarmBanco_tab:AddToggle({
