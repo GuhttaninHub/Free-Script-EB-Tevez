@@ -43,7 +43,7 @@ end)
 -- Construindo a TAB de Auto Farm Banco
 local Farm_tab = Window:MakeTab({"Farm", "house"})
 
-local Banco_tab = Window:MakeTab({"Banco", "ata"})
+local Banco_tab = Window:MakeTab({"Banco", "landmark"})
 
 Banco_tab:AddSection({"Farm"})
 -- Botão para iniciar roubo
