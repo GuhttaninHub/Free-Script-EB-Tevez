@@ -41,7 +41,7 @@ end)
 -- Nenhuma
 
 -- Construindo a TAB de Auto Farm Banco
-local Farm_tab = Window:MakeTab({"Farm", "house"})
+local Farm_tab = Window:MakeTab({"Farm", "Home"})
 
 local Banco_tab = Window:MakeTab({"Banco", "landmark"})
 
