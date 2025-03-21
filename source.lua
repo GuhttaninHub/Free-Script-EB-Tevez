@@ -41,7 +41,7 @@ end)
 -- Nenhuma
 
 -- Construindo a TAB de Auto Farm Banco
-local AutoFarmBanco_tab = Window:MakeTab({"Auto Farm Banco", "sla"})
+local Farm_tab = Window:MakeTab({"Farm", "house"})
 
 AutoFarmBanco_tab:AddSection({"Farm Manual"})
 -- Botão para iniciar roubo
@@ -351,3 +351,5 @@ Toggle_esp:Callback(function(Value)
         end
     end
 end)
+
+local Banco_tab = Window:MakeTab({"Banco", "ata"})
