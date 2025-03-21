@@ -157,7 +157,7 @@ end)
 
 atualizarStatus()
 
-local TP_Tab = Window:MakeTab({"Teleport", "Portal"})
+local TP_Tab = Window:MakeTab({"Teleport", "waypoint"})
 
 TP_Tab:AddSection("Cidade")
 
@@ -299,7 +299,7 @@ Toggle_AutoFarmBanco_Auto:Callback(function(Value)
     end)
 end)
 
-local esp_tab = Window:MakeTab({"ESP", "ESP"})
+local esp_tab = Window:MakeTab({"ESP", "eye"})
 
 local Toggle_esp = esp_tab:AddToggle({
     Title = "ESP - Players",
