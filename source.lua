@@ -26,6 +26,7 @@ local targetCFrame
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
 local wait_
+local esp_en
 
 task.spawn(function()
     while true do
@@ -297,4 +298,55 @@ Toggle_AutoFarmBanco_Auto:Callback(function(Value)
         end
     end)
 end)
+
+local esp_tab = Window:MakeTab({"ESP", "ESP"})
+
+local Toggle_esp = esp_tab:AddToggle({
+    Title = "ESP - Players",
+    Default = false
+})
+
+Toggle_esp:Callback(function(Value)
+    Run_TE = Value
+    local Players = game:GetService("Players")
+    local client = Players.LocalPlayer
+        
+    local function esp(a)
+        local b = Instance.new("BillboardGui")
+        b.Name = "x"
+        b.Parent = a
+        b.Adornee = a
+        b.Size = UDim2.new(0, 100, 0, 50)
+        b.AlwaysOnTop = true 
     
+        local c = Instance.new("TextLabel")
+        c.Parent = b
+        c.Size = UDim2.new(1, 0, 1, 0)
+        c.Text = a.Name
+        c.TextSize = 10
+        c.TextColor3 = Color3.fromRGB(0, 255, 255)
+        c.BackgroundTransparency = 1
+        c.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+        c.TextStrokeTransparency = 1
+    end
+
+    if Run_TE == true then
+        esp_en = true
+        for _, p in pairs(Players:GetPlayers()) do
+            if p.Character and p ~= client then
+                esp(p.Character)
+            end
+        end
+    elseif Run_TE == false then 
+        esp_en = false
+        for _, p in pairs(Players:GetPlayers()) do
+            if p.Character and p ~= client then
+                if not esp_en then
+                    local char = p.Character
+                    if char:FindFirstChild("x") then
+                        char.x:Destroy()
+                end
+            end
+        end
+    end
+end)
