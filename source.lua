@@ -224,8 +224,6 @@ TP_Tab:AddButton({"Teletransportar para a Aliança (dentro)", function()
     character:SetPrimaryPartCFrame(targetCFrame)
 end})
 
-AutoFarmBanco_tab:AddSection({"Auto Farm Automatico"})
-
 local Toggle_AutoFarmBanco_Auto = Farm_tab:AddToggle({
     Title = "Auto Farm Banco (AFK ✅)",
     Default = false
