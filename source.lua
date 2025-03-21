@@ -159,7 +159,7 @@ end)
 
 atualizarStatus()
 
-local TP_Tab = Window:MakeTab({"Teleport", "map-plus"})
+local TP_Tab = Window:MakeTab({"Teleport", "locate"})
 
 TP_Tab:AddSection("Cidade")
 
