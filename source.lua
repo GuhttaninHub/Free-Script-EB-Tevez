@@ -43,9 +43,11 @@ end)
 -- Construindo a TAB de Auto Farm Banco
 local Farm_tab = Window:MakeTab({"Farm", "house"})
 
-AutoFarmBanco_tab:AddSection({"Farm Manual"})
+local Banco_tab = Window:MakeTab({"Banco", "ata"})
+
+Banco_tab:AddSection({"Farm"})
 -- Botão para iniciar roubo
-AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
+Banco_tab:AddButton({"Iniciar Roubo", function()
     -- Colocando um CFrame na variável targetCFrame
     targetCFrame = CFrame.new(-921.370667, 49.0120926, 580.083923, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     -- Teletransportando o jogador até o CFrame definido na variável targetCFrame, que no caso é o CFrame da loja ilegal la da Aliança 
@@ -97,7 +99,7 @@ AutoFarmBanco_tab:AddButton({"Iniciar Roubo", function()
     -- fim, que trabalho para fazer esses comentários
 end})
 
-local Toggle_PegarDinheiro_Banco = AutoFarmBanco_tab:AddToggle({
+local Toggle_PegarDinheiro_Banco = Banco_tab:AddToggle({
     Title = "Pegar Dinheiro",
     Default = false
 })
@@ -120,7 +122,7 @@ Toggle_PegarDinheiro_Banco:Callback(function(Value)
     end
 end)
 
-AutoFarmBanco_tab:AddButton({"Entregar Dinheiro", function()
+Banco_tab:AddButton({"Entregar Dinheiro", function()
     targetCFrame = CFrame.new(-590.812012, 31.3067017, 347.676727, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     character:SetPrimaryPartCFrame(targetCFrame)
     
@@ -137,9 +139,9 @@ AutoFarmBanco_tab:AddButton({"Entregar Dinheiro", function()
     game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("Robbery"):FireServer(unpack(args))
 end})
 
-AutoFarmBanco_tab:AddSection({"Status"})
+Banco_tab:AddSection({"Status"})
 
-local SB_Label = AutoFarmBanco_tab:AddParagraph({"Status: LOADING"})
+local SB_Label = Banco_tab:AddParagraph({"Status: LOADING"})
 
 local statusLabel = workspace.Map.Robberies.Bank.StatusDisplay.SurfaceGui.TextLabel
 
@@ -157,7 +159,7 @@ end)
 
 atualizarStatus()
 
-local TP_Tab = Window:MakeTab({"Teleport", "waypoint"})
+local TP_Tab = Window:MakeTab({"Teleport", "map-plus"})
 
 TP_Tab:AddSection("Cidade")
 
@@ -224,7 +226,7 @@ end})
 
 AutoFarmBanco_tab:AddSection({"Auto Farm Automatico"})
 
-local Toggle_AutoFarmBanco_Auto = AutoFarmBanco_tab:AddToggle({
+local Toggle_AutoFarmBanco_Auto = Farm_tab:AddToggle({
     Title = "Auto Farm Banco (AFK ✅)",
     Default = false
 })
@@ -351,5 +353,3 @@ Toggle_esp:Callback(function(Value)
         end
     end
 end)
-
-local Banco_tab = Window:MakeTab({"Banco", "ata"})
