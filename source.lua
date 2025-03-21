@@ -345,6 +345,7 @@ Toggle_esp:Callback(function(Value)
                     local char = p.Character
                     if char:FindFirstChild("x") then
                         char.x:Destroy()
+                    end
                 end
             end
         end
