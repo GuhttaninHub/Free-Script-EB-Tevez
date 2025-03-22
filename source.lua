@@ -353,7 +353,7 @@ Toggle_esp:Callback(function(Value)
     end
 end)
 
-local ReservedServer_tab = Window:MakeTab({"Servidor Reservado", "nose"})
+local ReservedServer_tab = Window:MakeTab({"Servidor Reservado", "server"})
 
 ReservedServer_tab:AddTextBox({
     Name = "Código do servidor",
