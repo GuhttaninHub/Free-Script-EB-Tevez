@@ -352,6 +352,17 @@ Toggle_esp:Callback(function(Value)
     end
 end)
 
+local ReservedServer_tab = Window:MakeTab({"Servidor Reservado", "nose"})
+
+ReservedServer_tab:AddTextBox({
+    Name = "Digite algo",
+    PlaceholderText = "Escreva aqui...",
+    ClearText = true,
+    Callback = function(text)
+        print("O usuário digitou: " .. text)
+    end
+})
+
 local Discord_tab = Window:MakeTab({"Discord", "Info"})
 
 Discord_tab:AddDiscordInvite({
