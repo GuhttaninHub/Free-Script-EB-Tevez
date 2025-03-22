@@ -365,7 +365,12 @@ ReservedServer_tab:AddTextBox({
 })
 
 ReservedServer_tab:AddButton({"Entrar", function()
-    print("pera")
+    local args = {
+        [1] = "Join",
+        [2] = text_reservedserver
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Assets"):WaitForChild("Remotes"):WaitForChild("ReserverServer"):FireServer(unpack(args))
 end})
 
 local Discord_tab = Window:MakeTab({"Discord", "Info"})
