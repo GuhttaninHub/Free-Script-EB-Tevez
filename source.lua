@@ -351,3 +351,11 @@ Toggle_esp:Callback(function(Value)
         end
     end
 end)
+
+local Discord_tab = Window:MakeTab({"Discord", "Info"})
+
+Discord_tab:AddDiscordInvite({
+    Name = "SD-Goal Hub Server Official",
+    Logo = "rbxassetid://115626219720163",
+    Invite = "https://discord.gg/YhqvmK3u8w"
+})
