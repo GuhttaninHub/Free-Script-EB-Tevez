@@ -27,6 +27,7 @@ local VirtualInputManager = game:GetService("VirtualInputManager")
 local RS = game:GetService("RunService")
 local wait_
 local esp_en
+local text_reservedserver
 
 task.spawn(function()
     while true do
@@ -355,13 +356,17 @@ end)
 local ReservedServer_tab = Window:MakeTab({"Servidor Reservado", "nose"})
 
 ReservedServer_tab:AddTextBox({
-    Name = "Digite algo",
-    PlaceholderText = "Escreva aqui...",
-    ClearText = true,
+    Name = "Código do servidor",
+    PlaceholderText = "Digite o código",
+    ClearText = false,
     Callback = function(text)
-        print("O usuário digitou: " .. text)
+        text_reservedserver = text
     end
 })
+
+ReservedServer_tab:AddButton({"Entrar", function()
+    print("pera")
+end})
 
 local Discord_tab = Window:MakeTab({"Discord", "Info"})
 
